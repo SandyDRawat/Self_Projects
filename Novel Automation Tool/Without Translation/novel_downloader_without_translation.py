@@ -37,7 +37,7 @@ def create_epub(chapter_contents, novel_name, start_chapter, num_chapters):
     book.set_title(novel_name)
     book.add_author("Author Name")  # Replace with actual author name
     for i, content in enumerate(chapter_contents, start=start_chapter):
-        chapter_number = i - start_chapter + 1  # Adjusting chapter number
+        chapter_number = chapter_numbers[i]  # Adjusting chapter number
         chapter_content_with_number = f'<h1>Chapter {chapter_number}</h1>\n{content}'
         chapter = epub.EpubHtml(title=f'Chapter {chapter_number}', file_name=f'chapter_{chapter_number}.xhtml', lang='en')
         chapter.content = chapter_content_with_number
